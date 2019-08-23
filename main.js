@@ -10,52 +10,13 @@
     /* global ScrollReveal */
     const sr = window.sr = ScrollReveal()
 
-    sr.reveal('.feature', {
-      duration: 600,
-      distance: '20px',
+    sr.reveal('.hero-title, .hero-paragraph, .hero-form', {
+      duration: 1000,
+      distance: '40px',
       easing: 'cubic-bezier(0.5, -0.01, 0, 1.005)',
-      origin: 'right',
-      interval: 100
+      origin: 'bottom',
+      interval: 150
     })
-
-    sr.reveal('.media-canvas', {
-      duration: 600,
-      scale: '.95',
-      easing: 'cubic-bezier(0.5, -0.01, 0, 1.005)',
-      viewFactor: 0.5
-    })
-  }
-
-  // Wait that device mockup has loaded before displaying
-  const deviceMockup = document.querySelector('.device-mockup')
-
-  function deviceMockupLoaded () {
-    deviceMockup.classList.add('has-loaded')
-  }
-
-  if (deviceMockup.complete) {
-    deviceMockupLoaded()
-  } else {
-    deviceMockup.addEventListener('load', deviceMockupLoaded)
-  }
-
-  // Features title adjustment
-  const featuresSection = document.querySelector('.features')
-  const featuresTitle = featuresSection.querySelector('.section-title')
-  const firstFeature = document.querySelector('.feature-inner')
-
-  featuresTitlePos()
-  win.addEventListener('resize', featuresTitlePos)
-
-  function featuresTitlePos () {
-    let featuresSectionLeft = featuresSection.querySelector('.features-inner').getBoundingClientRect().left
-    let firstFeatureLeft = firstFeature.getBoundingClientRect().left
-    let featuresTitleOffset = parseInt(firstFeatureLeft - featuresSectionLeft)
-    if (firstFeatureLeft > featuresSectionLeft) {
-      featuresTitle.style.marginLeft = `${featuresTitleOffset}px`
-    } else {
-      featuresTitle.style.marginLeft = 0
-    }
   }
 
   // Moving objects
